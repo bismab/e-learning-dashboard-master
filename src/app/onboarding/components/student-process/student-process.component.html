@@ -1,0 +1,384 @@
+<link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/pixeden-stroke-7-icon@1.2.3/pe-icon-7-stroke/dist/pe-icon-7-stroke.min.css">
+<div class="container-fluid padding-bottom-3x mb-1 mt-3">
+    <div class="row">
+        <div class="col-12 text-right">
+            <button (click)="authHelper.logOut()" class="btn btn-outline-primary">Log Out</button>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-6 mx-auto text-center">
+            <h3 class="mt-6" *ngIf="user?.t == 's' && quizCompleted">
+                Thanks for participating in the Alif-B-C initial assessment. Results and level placement will be
+                emailed to you within 48 hours.
+            </h3>
+        </div>
+    </div>
+
+    <div *ngIf="showStepperContent">
+        <div class="card-plain mb-3">
+            <!-- <div class="p-4 text-center text-white text-lg bg-dark rounded-top"><span class="text-uppercase">Tracking Order
+                    No - </span><span class="text-medium">34VB5540K83</span></div>
+            <div class="d-flex flex-wrap flex-sm-nowrap justify-content-between py-3 px-2 bg-secondary">
+                <div class="w-100 text-center py-1 px-2"><span class="text-medium">Shipped Via:</span> UPS Ground</div>
+                <div class="w-100 text-center py-1 px-2"><span class="text-medium">Status:</span> Checking Quality</div>
+                <div class="w-100 text-center py-1 px-2"><span class="text-medium">Expected Date:</span> SEP 09, 2017</div>
+            </div> -->
+            <div class="card-body">
+                <div
+                    class="steps d-flex flex-wrap flex-sm-nowrap justify-content-between padding-top-2x padding-bottom-1x">
+                    <div [ngClass]="((user?.sail=='none') || (user?.sail=='one')) ? 'completed' : '' " class="step">
+                        <div class="step-icon-wrap">
+                            <div class="step-icon">1</div>
+                        </div>
+                        <h4 class="step-title">Info & Qualification</h4>
+                    </div>
+                    <div [ngClass]="(user?.sail=='one') ? 'completed' : ''" class="step ">
+                        <div class="step-icon-wrap">
+                            <div class="step-icon">2</div>
+                        </div>
+                        <h4 class="step-title">Quiz</h4>
+                    </div>
+                    <!-- <div [ngClass]="(user.sail=='two') ? 'completed' : '' " class="step">
+                        <div class="step-icon-wrap">
+                            <div class="step-icon">3</div>
+                        </div>
+                        <h4 class="step-title">Plateform Manual</h4>
+                    </div> -->
+                    <!-- <div class="step">
+                        <div class="step-icon-wrap">
+                            <div class="step-icon">4</div>
+                        </div>
+                        <h4 class="step-title">Product Dispatched</h4>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+        <!-- <div class="d-flex flex-wrap flex-md-nowrap justify-content-center justify-content-sm-between align-items-center">
+            <div class="custom-control custom-checkbox mr-3">
+                <input class="custom-control-input" type="checkbox" id="notify_me" checked="">
+                <label class="custom-control-label" for="notify_me">Notify me when order is delivered</label>
+            </div>
+            <div class="text-left text-sm-right"><a class="btn btn-outline-primary btn-rounded btn-sm" href="orderDetails"
+                    data-toggle="modal" data-target="#orderDetails">View Order Details</a></div>
+        </div> -->
+        <div *ngIf="authHelper?.currentUser?.sail=='none'" class="row">
+            <div class="col-8 mx-auto">
+                <div class="alert alert-info text-center">
+                    We are currently accepting students ages 10 and under. A parent/guardian is required to fill this
+                    form for the child applicant
+                </div>
+            </div>
+            <div class="col-8 mx-auto">
+                <fieldset>
+                    <div class="row">
+                        <div class="col-12">
+                            <h6 class="text-center" style="font-weight: bold;text-decoration: underline ;">Personal
+                                Info
+                            </h6>
+                        </div>
+                        <div class="col-md-12 mx-auto">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="font-weight-bold" for="">Name</label>
+                                        <input [(ngModel)]="studentInfo.name" type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="font-weight-bold" for="">Age</label>
+                                        <input [(ngModel)]="studentInfo.age" type="number" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="font-weight-bold" for="">Gender</label>
+                                        <select [(ngModel)]="studentInfo.gender" name="" class="form-control" id="">
+                                            <option value="female">Female</option>
+                                            <option value="male">Male</option>
+                                            <option value="pnts">Prefer No To Say</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="font-weight-bold" for="">City</label>
+                                        <input class="form-control" [(ngModel)]="studentInfo.city" type="text">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="font-weight-bold" for="">Country</label>
+                                        <input class="form-control" [(ngModel)]="studentInfo.country" type="text">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="font-weight-bold" for="">Date Of Birth</label>
+                                        <form class="form-inline">
+                                            <div class="form-group">
+                                                <div class="input-group">
+                                                    <input class="form-control" placeholder="yyyy-mm-dd" name="dp"
+                                                        [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
+                                                    <div class="input-group-append">
+                                                        <button class="btn btn-light calendar" (click)="d.toggle()"
+                                                            type="button"></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="">
+                                        <label class="font-weight-bold" for="">Verification of Date of Birth - Please
+                                            upload NICOP, Passport or Birth Certificate </label>
+                                        <input name="DOBVerifcation" #file="ngModel" ngModel type="file"
+                                            class="form-control" id="DOBVerifcation"
+                                            (change)="selectDOBVerifcationFile($event)">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="font-weight-bold" for="">Languages</label> <br>
+                                        <p-multiSelect [options]="languageOptions" [(ngModel)]="studentInfo.languages"
+                                            name="languages" id="">
+                                        </p-multiSelect>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="font-weight-bold" for="">Mother Tongue</label> <br>
+                                        <select class="form-control" [(ngModel)]="studentInfo.motherTongue"
+                                            name="motherTongue" id="">
+                                            <option *ngFor="let l of studentInfo.languages" [value]="l.l">
+                                                {{l?.l | titlecase}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="font-weight-bold" for="">Bio</label>
+                                        <textarea [(ngModel)]="studentInfo.bio" name="" id="" class="form-control"
+                                            rows="4"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="row">
+                        <div class="col-12">
+                            <h6 class="text-center" style="font-weight: bold;text-decoration: underline ;">Education
+                                Info
+                            </h6>
+                        </div>
+                        <div class="col-md-12 mx-auto">
+                            <div class="row">
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="font-weight-bold" for="">Degree</label>
+                                        <select [(ngModel)]="studentInfo.studentEduInfo.degree" name=""
+                                            class="form-control" id="">
+                                            <option value="under-matric">Under Matriculation</option>
+                                            <option value="matric">Matriculation</option>
+                                            <option value="intermediate">Intermediate</option>
+                                            <option value="graduate">Graduation</option>
+                                            <option value="master">Master</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="font-weight-bold" for="">Status</label>
+                                        <select [(ngModel)]="studentInfo.studentEduInfo.status" name=""
+                                            class="form-control" id="">
+                                            <option value="in-progress">In Progress</option>
+                                            <option value="completed">Completed</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="font-weight-bold" for="">Year</label>
+                                        <select [(ngModel)]="studentInfo.studentEduInfo.year" name=""
+                                            class="form-control" id="">
+                                            <option *ngFor="let y of years" [value]="y">{{y}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="font-weight-bold" for="">Institute</label>
+                                        <select [(ngModel)]="studentInfo.studentEduInfo.institute" name=""
+                                            class="form-control" id="">
+                                            <option value="Jadeed Dastgir English High School">Jadeed Dastgir English
+                                                High School</option>
+                                            <option value="Becon house High School">Becon house High School</option>
+                                            <option value="Allied School Systems">Allied School Systems</option>
+                                            <option value="Lahore Grammer School">Lahore Grammer School</option>
+                                            <option value="Govt. College">Govt. College</option>
+                                            <option value="Punjab College">Punjab College</option>
+                                            <option value="National science College">National science College</option>
+                                            <option value="UET Texila">UET Texila</option>
+                                            <option value="Gift University">Gift University</option>
+                                            <option value="University Of Gujrat">University Of Gujrat</option>
+                                            <option value="University Of Punjab">University Of Punjab</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="font-weight-bold" for=""><input
+                                                [(ngModel)]="studentInfo.studentEduInfo.attentSchool" type="checkbox">
+                                            Attend School ?</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="font-weight-bold" for=""><input
+                                                [(ngModel)]="studentInfo.studentEduInfo.specialEduSupport"
+                                                type="checkbox">
+                                            Need Special Education Support ?</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="row">
+                        <div class="col-12">
+                            <h6 class="text-center" style="font-weight: bold;text-decoration: underline ;">Parent Info
+                            </h6>
+                        </div>
+                        <div class="col-md-12 mx-auto">
+                            <div class="row">
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="font-weight-bold" for="">First Name</label>
+                                        <input class="form-control" [(ngModel)]="studentInfo.parentInfo.firstName"
+                                            type="text">
+
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="font-weight-bold" for="">Last Name</label>
+                                        <input class="form-control" [(ngModel)]="studentInfo.parentInfo.lastName"
+                                            type="text">
+
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="font-weight-bold" for="">Relation Ship</label>
+                                        <input class="form-control" [(ngModel)]="studentInfo.parentInfo.relationToChild"
+                                            type="text">
+
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="font-weight-bold" for="">Contact</label>
+                                        <input class="form-control" [(ngModel)]="studentInfo.parentInfo.contact"
+                                            type="text">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+
+            </div>
+        </div>
+
+
+        <div *ngIf="authHelper?.currentUser?.sail=='one'" class="row">
+            <div *ngIf="!quizStarted" class="col-8 mx-auto">
+                <div class="alert alert-primary text-left">
+                    <b>Assessment Instructions - Please read all steps carefully</b>
+                    <hr>
+                    <p>
+                        1. Complete this assessment using a laptop, desktop or tablet (avoid using smartphones)
+                    </p>
+                    <p>
+                        2. The child should complete the assessment test independently
+                    </p>
+                    <p>
+                        3. The assessment comprises of 10 questions and one audio recording
+                    </p>
+                    <p>
+                        4. The student will be asked to read a passage out loud for the audio recording, with only one
+                        opportunity to record
+                    </p>
+                    <p>
+                        5. The child cannot skip any questions, they must answer all questions to the best of their
+                        ability
+                    </p>
+                    <p>
+                        6. Upon completion of the assessment, click 'submit'
+                    </p>
+                    <p>
+                        7. When you are ready, click 'start' below
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-6 mx-auto text-center">
+
+                <button *ngIf="!quizStarted" (click)="startQuiz()" class="btn btn-success">Start Quiz</button>
+                <fieldset *ngIf="quizStarted">
+                    <div *ngIf="selectedQuizQuestion.detail">
+                        <h4 class="font-weight-bold mb-3">{{selectedQuizQuestion?.detail?.question}}</h4>
+                        <div *ngIf="selectedQuizQuestion.detail.type == 'multi-select'"
+                            class="btn-group btn-group-toggle">
+                            <label *ngFor="let ansOp of selectedQuizQuestion.detail.answerOptions"
+                                class="btn btn-sm btn-outline-primary m-2" ngbButtonLabel>
+                                <input type="checkbox" ngbButton (click)="selectOpInMulti(ansOp?._id)">{{ansOp?.op}}
+                            </label>
+                        </div>
+                        <!-- <div class="btn-group btn-group-toggle" ngbRadioGroup name="radioBasic" [(ngModel)]="model"> -->
+                        <div *ngIf="selectedQuizQuestion.detail.type == 'single-select'"
+                            class="btn-group btn-group-toggle" ngbRadioGroup [(ngModel)]="selectedQuizQuestion.a"
+                            name="radioBasic">
+                            <label *ngFor="let ansOp of selectedQuizQuestion.detail.answerOptions" ngbButtonLabel
+                                class="btn btn-sm btn-outline-primary m-2">
+                                <input ngbButton type="radio" [value]="ansOp._id">{{ansOp?.op}}
+                            </label>
+                        </div>
+                        <div class="mt-3" *ngIf="selectedQuizQuestion.detail.type == 'audio-record'">
+                            <button *ngIf="!recorded && !recording" (click)="recordAudio()"
+                                class="btn btn-block btn-success btn-sm btn-circle">Start
+                                Recording</button>
+                            <button *ngIf="recording" (click)="stopAudioRecording()"
+                                class="btn btn-block btn-danger btn-sm btn-circle">Stop
+                                Recording
+                                <small>(Recording...)</small></button>
+                            <button *ngIf="recorded" (click)="retryRecording()"
+                                class="btn btn-block btn-info btn-sm btn-circle">Retry</button>
+
+                            <audio id="recordAudio" style="width: 100%;" class="m-2" src=""></audio>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 text-center">
+                <hr>
+                <button (click)="studentOnboardingNext()" class="btn btn-primary">Next</button>
+            </div>
+        </div>
+
+    </div>
+
+</div>

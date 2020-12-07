@@ -1,0 +1,268 @@
+.export-csv {
+  display: block;
+  position: absolute;
+  right: 25px;
+}
+
+.export-csv a {
+  display: block;
+  font-weight: 600;
+  line-height: 20px;
+  color: #f45d6a;
+  font-size: 12px;
+  margin-left: 20px;
+}
+
+.export-csv a i {
+  display: inline-block;
+  margin-right: 3px;
+  font-size: 15px;
+  line-height: 20px;
+}
+
+.export-csv a:hover {
+  text-decoration: none;
+  color: #81889a;
+}
+
+.monthly {
+  margin-top: 20px;
+  font-weight: 500;
+  min-height: 80px;
+  display: block;
+}
+
+.monthly span {
+  display: block;
+  color: #f6646e;
+  font-size: 35px;
+  font-weight: 700;
+}
+
+.monthly-date {
+  margin-top: 20px;
+  font-weight: 500;
+  min-height: 80px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.monthly-date div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.monthly-date div button {
+  border-radius: 4px;
+  height: 35px;
+  width: 35px;
+  border: none;
+  font-weight: 500;
+  background: none;
+  color: #f45d6a;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.monthly-date div button:hover {
+  background: #f6646e;
+  color: #fff;
+}
+
+.monthly-date div span {
+  font-weight: 600;
+  font-size: 16px;
+  display: block;
+  padding: 0 15px;
+}
+
+.payments {
+  overflow: auto;
+  height: calc(100% - 60px);
+}
+
+.payments .card {
+  height: calc(100% - 20px);
+}
+
+.payments .card h5 {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 30px;
+  line-height: 40px;
+  padding: 15px;
+}
+
+.payments .card h5 img {
+  margin-right: 10px;
+  width: 30px;
+  height: 30px;
+}
+
+.payments .card h5 span {
+  float: right;
+  display: inline-block;
+}
+
+.payments .card .card-body {
+  padding: 10px 10px 25px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.payments .card .card-body div {
+  display: block;
+  border-bottom: 1px solid #ccc;
+  line-height: 40px;
+  padding: 0 10px;
+}
+
+.payments .card .card-body div span {
+  float: right;
+}
+
+.bonuses, .earnings {
+  margin: 0 0 15px;
+  display: table;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.bonuses span, .earnings span {
+  margin: 0 5px 0 40px;
+}
+
+.bonuses a, .earnings a {
+  display: inline-block;
+  color: #f6646e;
+}
+
+.bonuses a:hover, .earnings a:hover {
+  text-decoration: none;
+  color: #81889a;
+}
+
+.all-bonuses {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: #aaa;
+}
+
+.all-bonuses .bonuses {
+  font-weight: 500;
+}
+
+.all-bonuses .bonuses.active {
+  color: #81889a;
+}
+
+.all-bonuses .bonuses::after {
+  content: '|';
+  margin: 0 15px;
+  color: #aaa;
+}
+
+.all-bonuses .bonuses:nth-last-child()::after {
+  content: '';
+}
+
+.earnings-table thead tr {
+  border: 4px solid #fbe49e;
+  color: #f6646e;
+}
+
+.earnings-table thead tr th {
+  border: 1px solid #ddd;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 45px;
+}
+
+.earnings-table tbody tr td {
+  border: 1px solid #ddd;
+  text-align: center;
+  line-height: 40px;
+  padding: 8px 15px;
+}
+
+.earnings-table tbody tr td.no-data {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 40px;
+  text-align: center;
+}
+
+.payment-account {
+  margin-top: 30px;
+  font-size: 18px;
+}
+
+.payment-account > span {
+  display: table;
+  background: #fbe49e;
+  color: #81889a;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 0 25px;
+  line-height: 50px;
+}
+
+.payment-account div {
+  display: none;
+  border: 4px solid #fbe49e;
+  padding: 25px;
+}
+
+.payment-account div ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: table;
+}
+
+.payment-account div ul li {
+  font-size: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  line-height: 30px;
+}
+
+.payment-account div ul li span {
+  min-width: 150px;
+  font-weight: 600;
+  background: none;
+  display: table;
+  line-height: 30px;
+}
+
+.payment-account div button {
+  display: table;
+  background: #f6646e;
+  height: 40px;
+  border: none;
+  font-size: 12.5px;
+  margin-top: 15px;
+  color: #fff;
+  padding: 0 15px;
+  font-weight: 400;
+  border-radius: 4px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.payment-account div button:hover {
+  background: #81889a;
+}
+/*# sourceMappingURL=my-payments.component.css.map */

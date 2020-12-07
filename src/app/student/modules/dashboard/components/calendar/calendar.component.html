@@ -1,0 +1,163 @@
+<div class="row">
+
+    <div class="col-lg-12 col-md-12 col-sm-12 m-0 pl-2 pr-2">
+        <div class="card p-4 border-primary rounded">
+
+            <span class="hd-big">My Calendar</span>
+
+            <!-- <div class="view-btn">
+                <button type="button" class="active"><i class="fa fa-calendar"></i></button>
+                <button type="button"><i class="fa fa-list-ul"></i></button>
+            </div> -->
+
+
+
+            <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+                <li [ngbNavItem]="1">
+                    <a ngbNavLink><i class="fa fa-calendar"></i></a>
+                    <ng-template ngbNavContent>
+                        <full-calendar #calendar [weekends]="calendarWeekends" [options]="calendarOptions">
+                        </full-calendar>
+                    </ng-template>
+                </li>
+                <li [ngbNavItem]="2">
+                    <a ngbNavLink><i class="fa fa-list-ul"></i></a>
+                    <ng-template ngbNavContent>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="row">
+                                    <div class="col-6 text-center">
+                                        <form class="form-inline">
+                                            <div class="form-group">
+                                                <div class="input-group">
+                                                    <input class="form-control" placeholder="yyyy-mm-dd" name="dp"
+                                                        [(ngModel)]="selectedDate" ngbDatepicker #d="ngbDatepicker">
+                                                    <div class="input-group-append">
+                                                        <button class="calendar-btn calendar" (click)="d.toggle()"
+                                                            type="button"><i class="fa fa-calendar"></i></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="col-6 text-center">
+                                        <button (click)="filterClasses()" class="btn btn-primary">Filter</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <table class="list-view">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 40%;">Class</th>
+                                            <th>Teacher</th>
+                                            <th>Date</th>
+                                            <th>Day</th>
+                                            <th>Timings</th>
+                                            <th></th>
+                                            <!-- <th>Class ID</th>
+                                            <th>Date-Time</th>
+                                            <th>Student Name</th>
+                                            <th>Course</th>
+                                            <th>Lesspm Statis</th> -->
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let e of listingEvents"
+                                            [style.background-color]='e.backgroundColor'>
+                                            <td>{{e?.title}}</td>
+                                            <td>{{e?.teacher}}</td>
+                                            <td>{{e?.date}}</td>
+                                            <td>{{e?.day}}</td>
+                                            <td><b>{{e?.startTime | date :'hh:mm a'}}</b> to
+                                                <b>{{e?.endTime | date :'hh:mm a'}}</b></td>
+                                            <td><a *ngIf="e.join" class="btn btn-info" target="_blank"
+                                                [href]="e?.classAddress">Join</a></td>
+                                            <!-- <td>As Scheduled + Graded</td> -->
+                                        </tr>
+                                        <!-- <tr>
+                                            <td>12345678910-LEVEL1-C2-L1</td>
+                                            <td>9:00 - 09-19-2019</td>
+                                            <td>Kamran</td>
+                                            <td>LEVEL1-C2-L1</td>
+                                            <td>As Scheduled + Graded</td>
+                                        </tr>
+                                        <tr>
+                                            <td>12345678910-LEVEL1-C2-L1</td>
+                                            <td>9:00 - 09-19-2019</td>
+                                            <td>Kamran</td>
+                                            <td>LEVEL1-C2-L1</td>
+                                            <td>As Scheduled + Graded</td>
+                                        </tr>
+                                        <tr>
+                                            <td>12345678910-LEVEL1-C2-L1</td>
+                                            <td>9:00 - 09-19-2019</td>
+                                            <td>Kamran</td>
+                                            <td>LEVEL1-C2-L1</td>
+                                            <td class="selected">As Scheduled + Graded</td>
+                                        </tr>
+                                        <tr>
+                                            <td>12345678910-LEVEL1-C2-L1</td>
+                                            <td>9:00 - 09-19-2019</td>
+                                            <td>Kamran</td>
+                                            <td>LEVEL1-C2-L1</td>
+                                            <td>As Scheduled + Graded</td>
+                                        </tr>
+                                        <tr>
+                                            <td>12345678910-LEVEL1-C2-L1</td>
+                                            <td>9:00 - 09-19-2019</td>
+                                            <td>Kamran</td>
+                                            <td>LEVEL1-C2-L1</td>
+                                            <td>As Scheduled + Graded</td>
+                                        </tr>
+                                        <tr>
+                                            <td>12345678910-LEVEL1-C2-L1</td>
+                                            <td>9:00 - 09-19-2019</td>
+                                            <td>Kamran</td>
+                                            <td>LEVEL1-C2-L1</td>
+                                            <td>As Scheduled + Graded</td>
+                                        </tr>
+                                        <tr>
+                                            <td>12345678910-LEVEL1-C2-L1</td>
+                                            <td>9:00 - 09-19-2019</td>
+                                            <td>Kamran</td>
+                                            <td>LEVEL1-C2-L1</td>
+                                            <td class="selected">As Scheduled + Graded</td>
+                                        </tr> -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- <div class="row mb-5">
+                            <div class="col-12">
+                                <div class="pagging">
+                                    <ul>
+                                        <li class="active"><a href="#"><i class="fa fa-angle-double-left"></i> Prev</a>
+                                        </li>
+                                        <li><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li><a href="#">4</a></li>
+                                        <li><a href="#">5</a></li>
+                                        <li><a href="#">6</a></li>
+                                        <li><a href="#">7</a></li>
+                                        <li><a href="#">8</a></li>
+                                        <li><a href="#">9</a></li>
+                                        <li><a href="#">10</a></li>
+                                        <li><a href="#">Next <i class="fa fa-angle-double-right"></i></a></li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </div> -->
+                    </ng-template>
+                </li>
+            </ul>
+
+            <div [ngbNavOutlet]="nav" class="mt-2"></div>
+
+
+        </div>
+    </div>
+
+</div>

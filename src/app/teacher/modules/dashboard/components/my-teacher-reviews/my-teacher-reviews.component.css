@@ -1,0 +1,160 @@
+.student-profile-action {
+  position: absolute;
+  right: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.student-profile-action a {
+  display: block;
+  font-weight: 600;
+  line-height: 20px;
+  color: #f6646e;
+  font-size: 12px;
+  margin-left: 20px;
+}
+
+.student-profile-action a i {
+  display: inline-block;
+  margin-right: 3px;
+  font-size: 15px;
+  line-height: 20px;
+}
+
+.student-profile-action a:hover {
+  text-decoration: none;
+  color: #81889a;
+}
+
+.user {
+  max-width: 150px;
+}
+
+.user .image {
+  border: 1px solid #D1D1D1;
+  max-height: 150px;
+  background: #fff;
+  padding: 1px;
+  border-radius: 0;
+}
+
+.user .image img {
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+}
+
+.parents-feedback {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+}
+
+.parents-feedback .star i {
+  font-size: 28px;
+  line-height: 30px;
+  color: #81889a;
+  margin-right: 5px;
+}
+
+.parents-feedback .star i.active {
+  color: #fbe49e;
+}
+
+.parents-feedback span {
+  font-size: 15px;
+  line-height: 30px;
+  margin: 0 15px;
+  font-weight: 600;
+}
+
+.reviews {
+  margin: 20px 0 20px;
+}
+
+.reviews .star i {
+  font-size: 17px;
+  line-height: 20px;
+  color: #81889a;
+  margin-right: 5px;
+}
+
+.reviews .star i.active {
+  color: #fbe49e;
+}
+
+.reviews p {
+  margin: 0 0 10px;
+  padding: 0;
+  font-size: 15px;
+}
+
+.reviews .links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+}
+
+.reviews .links a {
+  display: block;
+  margin-right: 10px;
+  font-size: 14px;
+  color: #f45d6a;
+  font-weight: 600;
+}
+
+.reviews .links a:hover {
+  color: #81889a;
+  text-decoration: none;
+}
+
+ul {
+  font-weight: 500;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul li {
+  line-height: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+ul li span {
+  display: inline-block;
+  font-weight: 600;
+  min-width: 220px;
+}
+
+ul li p {
+  display: inline-block;
+}
+
+p {
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 22px;
+  margin: 0;
+  padding: 0 0 10px;
+}
+
+p a.link {
+  font-weight: 600;
+  color: #f45d6a;
+  text-decoration: underline;
+}
+
+p a.link:hover {
+  color: #71ecb6;
+}
+/*# sourceMappingURL=my-teacher-reviews.component.css.map */

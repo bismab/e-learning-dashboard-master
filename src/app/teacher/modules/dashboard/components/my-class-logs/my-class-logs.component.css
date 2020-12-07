@@ -1,0 +1,95 @@
+.class-log {
+  background: #fff;
+  width: 100%;
+  font-weight: 500;
+}
+
+.class-log thead tr {
+  border: 4px solid #fbe49e;
+  color: #f6646e;
+}
+
+.class-log thead tr th:nth-child(1) {
+  width: 20%;
+}
+
+.class-log thead tr th:nth-child(5) {
+  width: 18%;
+}
+
+.class-log thead tr th {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 45px;
+}
+
+.class-log tbody tr td {
+  border: 1px solid #ddd;
+  text-align: center;
+  line-height: 22px;
+  min-height: 40px;
+  padding: 8px 15px;
+}
+
+.class-log tbody tr td.selected {
+  background: #f6646e;
+  color: #fff;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.class-log tbody tr td.selected:hover {
+  background: #fbe49e;
+}
+
+.lesson-status {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 5px;
+}
+
+.lesson-status span {
+  font-weight: 600;
+  width: 120px;
+  line-height: 40px;
+  padding-right: 10px;
+  margin-right: 5px;
+}
+
+.lesson-status select {
+  display: table;
+  border: 1px solid #ccc;
+  height: 40px;
+  padding: 0 5px;
+  display: table;
+  min-width: 200px;
+  outline: none;
+}
+
+.lesson-status input {
+  outline: none;
+  height: 40px;
+  display: table;
+  padding: 0 10px;
+  position: relative;
+  border: 1px solid #ccc;
+  min-width: 200px;
+  z-index: 1;
+}
+
+.lesson-status .calendar-btn {
+  background: #ccc;
+  color: #fff;
+  border: 1px solid #ccc;
+  height: 40px;
+  width: 40px;
+  outline: none;
+}
+
+.lesson-status .calendar-btn:hover {
+  background: #f6646e;
+  border-color: #f6646e;
+}
+/*# sourceMappingURL=my-class-logs.component.css.map */

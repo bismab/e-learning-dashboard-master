@@ -1,0 +1,113 @@
+.levels {
+  padding-bottom: 30px;
+  border-bottom: 1px dashed #ddd;
+}
+
+.levels h5 {
+  display: block;
+  font-size: 20px;
+  font-weight: 600;
+  margin: 10px 0 15px;
+  padding: 0;
+}
+
+.levels .grade {
+  display: block;
+  margin: 0 0 10px;
+  font-size: 15px;
+}
+
+.levels .grade strong {
+  line-height: 30px;
+  display: inline-block;
+}
+
+.levels .grade span {
+  margin: 0 15px;
+  background: #f6646e;
+  display: inline-block;
+  height: 30px;
+  width: 30px;
+  font-weight: 600;
+  line-height: 30px;
+  text-align: center;
+  color: #fff;
+}
+
+.levels a.details {
+  border: none;
+  font-weight: 600;
+  color: #f45d6a;
+  padding: 0;
+  margin: 0;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.levels a.details:hover {
+  color: #81889a;
+}
+
+.levels .tables {
+  background: #fff;
+  display: none;
+  width: 70%;
+}
+
+.levels .tables table {
+  background: #fff;
+  width: 100%;
+  font-weight: 500;
+  margin: 10px 0 20px;
+}
+
+.levels .tables table thead tr {
+  border: 4px solid #fbe49e;
+  color: #f6646e;
+  font-weight: 500;
+}
+
+.levels .tables table thead tr th {
+  text-align: left;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 45px;
+  padding: 0 15px;
+}
+
+.levels .tables table tbody tr td {
+  border: 1px solid #ddd;
+  text-align: center;
+  line-height: 45px;
+  padding: 5px 15px;
+}
+
+.levels .tables table tbody tr td span {
+  color: #fff;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  line-height: 22px;
+  padding: 0 2px;
+  margin: 0 auto;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 50px;
+  font-size: 13px;
+}
+
+.levels .tables table tbody tr td span.pass {
+  background: #f6646e;
+}
+
+.levels .tables table tbody tr td span.fail {
+  background: #81889a;
+}
+
+.levels .tables table:last-child {
+  margin-bottom: 0;
+}
+/*# sourceMappingURL=report-card.component.css.map */

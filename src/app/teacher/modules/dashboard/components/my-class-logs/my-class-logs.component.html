@@ -1,0 +1,110 @@
+<div class="row">
+
+    <div class="col-lg-12 col-md-12 col-sm-12 m-0 pl-2 pr-2">
+        <div class="card p-4 border-primary rounded">
+
+            <div class="row mb-5">
+                <div class="col-12">
+                    <div class="students-stats justify-center">
+                        <div>
+                            <img src="./assets/img/icons/icon-total-days-taught.svg" alt="">
+                            <span>Total Days Taught</span>
+                        </div>
+                        <div>
+                            <img src="./assets/img/icons/icon-total-classes-taught.svg" alt="">
+                            <span>Total Classes Taught</span>
+                        </div>
+                        <div>
+                            <img src="./assets/img/icons/icon-total-students-taught.svg" alt="">
+                            <span>Total Students Taught</span>
+                        </div>
+                        <div>
+                            <img src="./assets/img/icons/icon-overall-teacher-rating.svg" alt="">
+                            <span>Overall Teacher Rating</span>
+                        </div>
+                        <div>
+                            <img src="./assets/img/icons/icon-total-student-conversions.svg" alt="">
+                            <span>Total Student Conversions</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mb-5">
+                <div class="col-12">
+                    <!-- <div class="lesson-status">
+                        <span>Lesson Status : </span>
+                        <select name="" id="">
+                            <option value="0" selected>Please Select Status</option>
+                        </select>
+                    </div> -->
+                    <div class="lesson-status">
+                        <span>Date : </span>
+                        <div class="form-inline">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <input class="form-control" placeholder="yyyy-mm-dd" name="dp"
+                                        [(ngModel)]="selectedDate" ngbDatepicker #d="ngbDatepicker">
+                                    <div class="input-group-append">
+                                        <button class="calendar-btn calendar" (click)="d.toggle()" type="button"><i
+                                                class="fa fa-calendar"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <button (click)="filterClasses()" class="ml-4 btn btn-primary">Filter</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mb-5">
+                <div class="col-12">
+                    <table class="class-log">
+                        <thead>
+                            <tr>
+                                <th style="width: 40%;">Class</th>
+                                <th>Date</th>
+                                <th>Day</th>
+                                <th>Timings</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let e of listingEvents" [style.background-color]='e.backgroundColor'>
+                                <td>{{e?.title}}</td>
+                                <td>{{e?.date}}</td>
+                                <td>{{e?.day}}</td>
+                                <td><b>{{e?.startTime | date :'hh:mm a'}}</b> to
+                                    <b>{{e?.endTime | date :'hh:mm a'}}</b></td>
+                                <!-- <td>As Scheduled + Graded</td> -->
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- <div class="row mb-3">
+                <div class="col-12">
+                    <div class="pagging">
+                        <ul>
+                            <li class="active"><a href="#"><i class="fa fa-angle-double-left"></i> Prev</a></li>
+                            <li><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li><a href="#">6</a></li>
+                            <li><a href="#">7</a></li>
+                            <li><a href="#">8</a></li>
+                            <li><a href="#">9</a></li>
+                            <li><a href="#">10</a></li>
+                            <li><a href="#">Next <i class="fa fa-angle-double-right"></i></a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div> -->
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,290 @@
+/*!
+
+=========================================================
+* Paper Dashboard Angular - v2.1.0
+=========================================================
+
+* Product Page: https://www.creative-tim.com/product/paper-dashboard-angular
+* Copyright 2019 Creative Tim (https://www.creative-tim.com)
+* Licensed under MIT (https://github.com/creativetimofficial/paper-dashboard-angular/blob/master/LICENSE.md)
+
+* Coded by Creative Tim
+
+=========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+*/
+
+@import 'paper-dashboard/variables';
+@import 'paper-dashboard/mixins';
+
+// Plugins CSS
+@import "paper-dashboard/plugins/plugin-animate-bootstrap-notify";
+@import "paper-dashboard/plugins/plugin-perfect-scrollbar";
+
+// Core CSS
+@import "paper-dashboard/buttons";
+@import "paper-dashboard/inputs";
+@import "paper-dashboard/typography";
+@import "paper-dashboard/misc";
+@import "paper-dashboard/checkboxes-radio";
+
+
+// components
+@import "paper-dashboard/navbar";
+@import "paper-dashboard/page-header";
+@import "paper-dashboard/dropdown";
+@import "paper-dashboard/alerts";
+@import "paper-dashboard/images";
+@import "paper-dashboard/nucleo-outline";
+@import "paper-dashboard/tables";
+@import "paper-dashboard/sidebar-and-main-panel";
+@import "paper-dashboard/footers";
+@import "paper-dashboard/fixed-plugin";
+
+// cards
+@import "paper-dashboard/cards";
+@import "paper-dashboard/cards/card-plain";
+@import "paper-dashboard/cards/card-chart";
+@import "paper-dashboard/cards/card-user";
+@import "paper-dashboard/cards/card-map";
+@import "paper-dashboard/cards/card-stats";
+
+// angular differences
+@import "paper-dashboard/angular/plugin-ngx-toastr";
+@import "paper-dashboard/angular/sidebar-and-main-panel";
+@import "paper-dashboard/angular/dropdown";
+@import "paper-dashboard/angular/inputs";
+@import "paper-dashboard/angular/fixed-plugin";
+
+@import "paper-dashboard/responsive";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Allerta+Stencil&display=swap');
+a{
+    transition: 0.3s;
+    outline: none;
+}
+$green: #71ecb6;
+$yellow: #fbe49e;
+$yellow1: #EEEA63;
+$yellow2: #EF9D53;
+$black: #000;
+$white: #fff;
+$red: #f45d6a;
+$red2:#AD2C37;
+$purple: #55478B;
+$pink: #f6646e;
+$gray: #81889a;
+.border-primary{
+    border: 1px solid #bbbbbd !important;
+}
+.rounded{
+    border-radius: 20px !important;
+}
+.hd-big {
+    font-size: 22px;
+    line-height: 24px;
+    font-weight: 500;
+    display: block;
+    margin-bottom: 15px;
+    position: relative;
+    /*
+    &::before{
+        height: 24px;
+        width: 4px;
+        background: #43CFA2;
+        display: inline-block;
+        position: relative;
+        left: 0;
+        content: '';
+    }
+    */
+}
+.hd {
+    font-size: 20px;
+    line-height: 20px;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 10px;
+}
+.world-map{
+    background: #F55E6B;
+    /*background-image: url("../../assets/img/worldmap2.png"); fallback */
+    background-image: /*url("../../assets/img/worldmap2.png"),*/ linear-gradient(96.43deg, #F55E6B, #AD2C37);
+    background-repeat: no-repeat;
+    background-position: right center;
+    color: #fff;
+    .hd{
+        font-weight: 400;
+    }
+    h3{
+        font-weight: 600;
+        font-size: 20px;
+    }
+    a.change{
+        color: $yellow1;
+        font-weight: 600;
+        font-size: 14px;
+        text-decoration: none;
+        position: absolute;
+        left: 25px;
+        bottom: 20px;
+        &:hover{
+            color: $white;
+        }
+    }
+}
+.world-map2{
+    background: #2d9fc9;
+    /*background-image: url("../../assets/img/worldmap2.png");  fallback */
+    background-image: /*url("../../assets/img/worldmap2.png"),*/ linear-gradient(96.43deg, #2d9fc9, #146bbb);
+    background-repeat: no-repeat;
+    background-position: center center;
+    color: $white;
+    
+}
+
+.students-stats{
+    display: flex;
+    //justify-content: center;
+    align-items: center;  
+    div{
+        display: inherit;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 15px;
+        width: 165px;
+        //background: peru;
+        img{
+        display: block;
+        width: 96px;
+        height: 96px;      
+        }
+        span{
+        margin: 10px 0 0;
+            display: block;
+            text-align: center;
+            font-weight: 600;
+            font-size: 15px;
+            line-height: 18px;
+        }
+    }
+}
+.justify-center{
+    justify-content: center;
+}
+
+.pagging{
+    .view-all{
+        display: table;
+        margin: 0 auto;
+        font-size: 16px;
+        color: $pink;
+        font-weight: 600;
+        margin-bottom: 20px;
+        &:hover{
+            color: $gray;
+        }
+    }
+    ul{
+        display: flex;
+        justify-content: center;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        li{
+            padding: 0 5px;
+            a{
+                text-decoration: none;
+                display: block;
+                line-height: 30px;
+                min-width: 30px;
+                padding: 0 10px;
+                background: #eee;
+                color: #333;                
+            }
+            &.active{                
+                a{
+                    background: $pink;
+                    color: $white;
+                }
+            }
+            &:hover{
+                a{
+                    background: $pink;
+                    color: $white;
+                }
+            }
+        }
+    }
+}
+
+.modal-backdrop.show{
+    background: #2d9fc9;
+    background-image: linear-gradient(96.43deg, #2d9fc9, #146bbb);
+    opacity: 0.95;
+}
+
+
+.class-grade{
+    padding: 2em;
+    h2{
+        font-size: 28px;
+        display: block;
+        line-height: 28px;
+        margin: 0 0 15px;
+        padding: 0;
+        font-weight: 600;
+        color: $purple;
+    }
+    h3{
+        font-size: 22px;
+        display: block;
+        line-height: 22px;
+        margin:0 0 15px;
+        padding:0;
+        font-weight: 600;
+    }
+    h5{
+        font-size: 13px;
+        display: table;
+        line-height: 16px;
+        margin: 0;
+        padding: 7px 10px;
+        font-weight: 400;
+        background: #2d9fc9;
+        color: #fff;
+    }
+    .improve{
+        display: block;
+        margin: 15px 0;
+        font-size: 14px;
+    }
+    .rate{
+        display: flex;
+        justify-content: flex-start;
+        font-size: 16px;
+        margin: 0 0 10px;
+        span{
+            display: block;
+            width: 90px;
+            font-weight: 600;
+        }
+        .star{
+            display: flex;
+            padding-left: 10px;
+            align-items: center;
+            i{
+                margin: 0 3px;
+                font-size: 28px;
+                line-height: 25px;
+                color: #EF9D53;
+            }            
+        }
+        &:last-child{
+            margin-bottom: 0;;
+        }
+    }
+}

@@ -1,0 +1,167 @@
+<div class="row">
+
+    <div class="col-12 m-0 pl-2 pr-2">
+        <div class="card rounded p-0">
+
+            <div class="banner-two">
+                <div class="row align-items-center justify-content-between">
+                    <div class="col-lg-4 col-md-4 col-sm-12 pt-3 pb-3 pl-5 pr-5">
+                        <h2>Hello Emily!</h2>
+                        <p>Dashboard Home</p>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        <div class="time-zone">
+                            <h3>Your Current Time Zone<br> Pakistan Standard</h3>
+                            <a href="#" class="change">Change</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!--
+    <div class="col-lg-3 col-md-3 col-sm-12 m-0 pl-1 pr-1">
+        <div class="card rounded p-4 world-map">
+            <span class="hd">Your Current Time Zone</span>
+            <h3>Pakistan Standard Time</h3>
+            <a href="#" class="change">Change</a>
+        </div>
+    </div>
+    -->
+    <!--
+    <div class="col-lg-4 col-md-4 col-sm-12 m-0 pl-1 pr-1">
+        <div class="card border-primary rounded p-4">
+
+            <span class="hd-big">You Are Qualified to Teach</span>
+            <ol class="qualified">
+                <li>All Trial Classes</li>
+                <li>1-on-1 Major courses Level-1 to Level-5</li>
+            </ol>
+
+        </div>
+    </div>
+    -->
+    <div class="col-lg-12 col-md-12 col-sm-12 m-0 pl-2 pr-2">
+        <div class="rounded p-0 pb-4">
+            <div class="row">
+                <div class="col"><span class="hd-big">Upcoming Classes</span></div>
+                <div class="col">
+                    <div class="month"><i class="fa fa-calendar"></i> Month</div>
+                </div>
+            </div>
+            <div class="week">
+                <div *ngFor="let d of days" (click)="generateClassChunks(d.fulldate)"
+                    [ngClass]="(d.fulldate == selectedDate)?'active':''" class="week-day">
+                    <span class="day">{{d?.day}}</span>
+                    <span class="number">{{d?.date}}</span>
+                    <!-- <div class="circle"></div> -->
+                </div>
+                <!-- <div class="week-day">
+                    <span class="day">Tue</span>
+                    <span class="number">3</span>
+                    <div class="circle"></div>
+                </div>
+                <div class="week-day">
+                    <span class="day">Wed</span>
+                    <span class="number">4</span>
+                    <div class="circle"></div>
+                </div>
+                <div class="week-day">
+                    <span class="day">Thu</span>
+                    <span class="number">5</span>
+                    <div class="circle"></div>
+                </div>
+                <div class="week-day">
+                    <span class="day">Fri</span>
+                    <span class="number">6</span>
+                    <div class="circle"></div>
+                </div> -->
+            </div>
+
+            <table class="class-log">
+                <thead>
+                    <tr>
+                        <th style="width: 50%;">Class</th>
+                        <th>Timings</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let cl of classListing">
+                        <td>{{cl?.title}}</td>
+                        <td><b>{{cl?.startTime | date :'hh:mm a'}}</b> to
+                            <b>{{cl?.endTime | date :'hh:mm a'}}</b></td>
+                        <td><a *ngIf="cl.join" class="btn btn-info" target="_blank"
+                            [href]="cl?.classAddress">Join</a></td>
+                        <!-- <td>As Scheduled + Graded</td> -->
+                    </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+    <div class="col-lg-6 col-md-6 col-sm-12 m-0 pl-2 pr-2">
+        <div class="card border-primary rounded p-4">
+
+            <span class="hd-big">Teaching Tips</span>
+            <div class="slide-btn">
+                <button><i class="fa fa-chevron-left"></i></button>
+                <button><i class="fa fa-chevron-right"></i></button>
+            </div>
+            <div class="tips">
+                <div class="item">
+                    <h4>Conversation points:</h4>
+                    <p>This month is Ramadan, Muslims fast for 30 days during this onth</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-12 m-0 pl-2 pr-2">
+        <div class="card border-primary rounded p-4">
+
+            <span class="hd-big">Reminders</span>
+            <ul class="reminder">
+                <li><span>ID: RE-123456</span> (Please review within 12 hours of class completion)</li>
+                <li><span>ID: PE-563449</span> (Please review within 12 hours of class completion)</li>
+            </ul>
+
+        </div>
+    </div>
+
+    <div class="col-12 m-0 pl-2 pr-2">
+        <div class="card border-primary rounded p-4">
+
+            <div class="students-stats justify-center">
+                <div>
+                    <img src="./assets/img/icons/icon-total-days-taught.svg" alt="">
+                    <span>Total Days Taught</span>
+                </div>
+                <div>
+                    <img src="./assets/img/icons/icon-total-days-teaching.svg" alt="">
+                    <span>Total Days of Teaching</span>
+                </div>
+                <div>
+                    <img src="./assets/img/icons/icon-total-classes-taught.svg" alt="">
+                    <span>Total Classes Taught</span>
+                </div>
+                <div>
+                    <img src="./assets/img/icons/icon-total-students-taught.svg" alt="">
+                    <span>Total Students Taught</span>
+                </div>
+                <div>
+                    <img src="./assets/img/icons/icon-overall-teacher-rating.svg" alt="">
+                    <span>Overall Teacher Rating</span>
+                </div>
+                <div>
+                    <img src="./assets/img/icons/icon-total-student-conversions.svg" alt="">
+                    <span>Total Student Conversions</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

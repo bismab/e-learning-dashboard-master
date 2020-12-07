@@ -1,0 +1,52 @@
+<div class="row">
+
+    <div class="col-lg-12 col-md-12 col-sm-12 m-0 pl-2 pr-2">
+        <div class="card border-primary rounded p-4">
+            <div class="row">
+                <div class="col-10 mx-auto">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="" class="font-weight-bold">Your Prefered Timings ?</label>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <label for="">From</label>
+                                        <ngb-timepicker [(ngModel)]="startTime" meridian="true"></ngb-timepicker>
+                                    </div>
+                                    <div class="col-6">
+                                        <label for="">To</label>
+                                        <ngb-timepicker [(ngModel)]="endTime" meridian="true"></ngb-timepicker>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="" class="font-weight-bold">Your Prefered Days ?</label>
+                                <br>
+                                <div class="btn-group btn-group-toggle">
+                                    <label *ngFor="let d of days" class="btn-outline-primary" ngbButtonLabel>
+                                        <input [name]="d.k" type="checkbox" ngbButton
+                                            [(ngModel)]="enrollmentInfo.days[d.k]">{{d?.t}}
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 mt-3">
+                            <div class="form-group">
+                                <label for="" class="font-weight-bold">Your Prefered Class Type ?</label>
+                                <select name="classType" [(ngModel)]="enrollmentInfo.classType" class="form-control" id="classType">
+                                    <option *ngFor="let ct of classTypes" [value]="ct._id">{{ct?.title}} (1 -
+                                        {{ct?.maxStudents}})</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <Button (click)="create()" class="btn btn-primary">Request</Button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

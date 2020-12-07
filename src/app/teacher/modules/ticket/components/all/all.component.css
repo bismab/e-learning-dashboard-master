@@ -1,0 +1,135 @@
+.issues .hd {
+  font-size: 15px;
+  display: block;
+  line-height: 15px;
+  margin-top: 30px;
+}
+
+.issues .hd i {
+  font-style: normal;
+}
+
+.issues .all-issues {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.issues .all-issues span {
+  border: 1px solid #ddd;
+  line-height: 35px;
+  padding: 0 15px;
+  display: table;
+  font-size: 12px;
+  font-weight: 500;
+  border-radius: 4px;
+  margin: 0 5px 5px 0;
+}
+
+.issues .issues-category {
+  display: block;
+}
+
+.issues .issues-category select {
+  font-weight: 500;
+  display: table;
+  min-width: 230px;
+  height: 40px;
+  padding: 0 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.issues .topic input[type="text"] {
+  display: table;
+  min-width: 60%;
+  line-height: 45px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  padding: 0 15px;
+  outline: none;
+}
+
+.issues .topic input[type="text"]:focus {
+  background: #f7f7f7;
+  border-color: #ddd;
+  color: #000;
+  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.06);
+          box-shadow: 0 3px 5px rgba(0, 0, 0, 0.06);
+}
+
+.issues .star {
+  color: red;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.issues .desc {
+  display: block;
+}
+
+.issues .desc p {
+  display: block;
+  margin: 0 0 20px;
+  padding: 0;
+  font-size: 13px;
+  width: 50%;
+}
+
+.issues .desc p strong {
+  font-weight: 600;
+}
+
+.issues .desc textarea {
+  display: block;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 100%;
+  min-height: 310px;
+  font-size: 13px;
+  padding: 15px;
+  margin-bottom: 15px;
+  outline: none;
+}
+
+.issues .desc textarea:focus {
+  background: #f7f7f7;
+  border-color: #ddd;
+  color: #000;
+  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.06);
+          box-shadow: 0 3px 5px rgba(0, 0, 0, 0.06);
+}
+
+.issues .desc input[type="file"] {
+  display: inline-block;
+}
+
+.issues .desc em {
+  display: block;
+  font-size: 11px;
+  margin: 4px;
+  font-style: normal;
+  font-weight: 500;
+}
+
+.issues .desc button[type="submit"] {
+  display: table;
+  background: #f45d6a;
+  height: 40px;
+  border: none;
+  font-size: 12.5px;
+  margin-top: 15px;
+  color: #fff;
+  padding: 0 25px;
+  font-weight: 400;
+  border-radius: 4px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  min-width: 150px;
+}
+
+.issues .desc button[type="submit"]:hover {
+  background: #333;
+}
+/*# sourceMappingURL=all.component.css.map */

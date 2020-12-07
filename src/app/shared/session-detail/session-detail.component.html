@@ -1,0 +1,36 @@
+<div class="modal-header text-center">
+    <h4 class="modal-title ">Class</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <div class="row">
+        <div *ngIf="data?.teacher" class="col-12 text-center">
+            <div class="form-group">
+                <label class="font-weight-bold" for="">Teacher</label>
+                <p>
+                    {{data?.teacher?.name}} ({{data?.teacher?.gender}}) of {{data?.teacher?.age}} years old.
+                </p>
+            </div>
+        </div>
+        <div *ngIf="data?.students?.length" class="col-12 text-center">
+            <div class="form-group">
+                <label class="font-weight-bold" for="">Students</label><br>
+                <span class="badge badge-warning m-1" *ngFor="let s of data.students">{{s?.student?.name}}
+                    ({{s?.student?.gender}}) of
+                    {{s?.student?.age}}
+                    years old.</span>
+            </div>
+        </div>
+        <div class="col-12 text-center">
+            <!-- <div class="alert alert-success"> -->
+            Class Timings: <b>{{data?.session?.startTime | date :'hh:mm a'}}</b> to
+            <b>{{data?.session?.endTime | date :'hh:mm a'}}</b>
+            <!-- </div> -->
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+</div>

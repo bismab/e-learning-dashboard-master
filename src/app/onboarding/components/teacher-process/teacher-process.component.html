@@ -1,0 +1,360 @@
+<link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/pixeden-stroke-7-icon@1.2.3/pe-icon-7-stroke/dist/pe-icon-7-stroke.min.css">
+<div class="container-fluid padding-bottom-3x mb-1 mt-3">
+    <div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 text-right">
+                    <button (click)="authHelper.logOut()" class="btn btn-outline-danger">Log Out</button>
+                </div>
+            </div>
+        </div>
+        <div class="card-plain mb-3">
+            <!-- <div class="p-4 text-center text-white text-lg bg-dark rounded-top"><span class="text-uppercase">Tracking Order
+                    No - </span><span class="text-medium">34VB5540K83</span></div>
+            <div class="d-flex flex-wrap flex-sm-nowrap justify-content-between py-3 px-2 bg-secondary">
+                <div class="w-100 text-center py-1 px-2"><span class="text-medium">Shipped Via:</span> UPS Ground</div>
+                <div class="w-100 text-center py-1 px-2"><span class="text-medium">Status:</span> Checking Quality</div>
+                <div class="w-100 text-center py-1 px-2"><span class="text-medium">Expected Date:</span> SEP 09, 2017</div>
+            </div> -->
+            <div class="card-body">
+                <div
+                    class="steps d-flex flex-wrap flex-sm-nowrap justify-content-between padding-top-2x padding-bottom-1x">
+                    <div [ngClass]="((user?.tail=='none') || (user?.tail=='one')||(user?.tail=='two')) ? 'completed' : '' "
+                        class="step">
+                        <div class="step-icon-wrap">
+                            <div class="step-icon">1</div>
+                        </div>
+                        <h4 class="step-title">Personal & Academic Info</h4>
+                    </div>
+                    <div [ngClass]="(user?.tail=='one' || user?.tail=='two') ? 'completed' : ''" class="step ">
+                        <div class="step-icon-wrap">
+                            <div class="step-icon">2</div>
+                        </div>
+                        <h4 class="step-title">Demo Class</h4>
+                    </div>
+                    <div [ngClass]="(user?.tail=='two') ? 'completed' : ''" class="step ">
+                        <div class="step-icon-wrap">
+                            <div class="step-icon">3</div>
+                        </div>
+                        <h4 class="step-title">Contract</h4>
+                    </div>
+                    <!-- <div [ngClass]="(user.sail=='two') ? 'completed' : '' " class="step">
+                        <div class="step-icon-wrap">
+                            <div class="step-icon">3</div>
+                        </div>
+                        <h4 class="step-title">Plateform Manual</h4>
+                    </div> -->
+                    <!-- <div class="step">
+                        <div class="step-icon-wrap">
+                            <div class="step-icon">4</div>
+                        </div>
+                        <h4 class="step-title">Product Dispatched</h4>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+        <!-- <div class="d-flex flex-wrap flex-md-nowrap justify-content-center justify-content-sm-between align-items-center">
+            <div class="custom-control custom-checkbox mr-3">
+                <input class="custom-control-input" type="checkbox" id="notify_me" checked="">
+                <label class="custom-control-label" for="notify_me">Notify me when order is delivered</label>
+            </div>
+            <div class="text-left text-sm-right"><a class="btn btn-outline-primary btn-rounded btn-sm" href="orderDetails"
+                    data-toggle="modal" data-target="#orderDetails">View Order Details</a></div>
+        </div> -->
+        <div *ngIf="authHelper?.currentUser?.tail=='none'" class="row">
+            <div *ngIf="teacherInfo?.teacherAcademicInfo?.status == 'attempted'" class="col-6 mx-auto">
+                <div class="alert alert-success text-center">
+                    <b style="font-size: large;"> Thanks for your application, your account is under review and will be
+                        processed within
+                        48 hrs.</b>
+                </div>
+            </div>
+            <div *ngIf="!teacherInfo?.teacherAcademicInfo?.status || (teacherInfo?.teacherAcademicInfo?.status == 'declined')"
+                class="col-12">
+                <fieldset>
+                    <div class="row">
+                        <div class="col-md-6 mx-auto">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="font-weight-bold" for="">Name</label>
+                                        <input [(ngModel)]="teacherInfo.name" type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="font-weight-bold" for="">Gender</label>
+                                        <select [(ngModel)]="teacherInfo.gender" name="" class="form-control" id="">
+                                            <option value="female">Female</option>
+                                            <option value="male">Male</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="font-weight-bold" for="">Age</label>
+                                        <input [(ngModel)]="teacherInfo.age" type="number" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="font-weight-bold" for="">Bio</label>
+                                        <textarea [(ngModel)]="teacherInfo.bio" name="" id="" class="form-control"
+                                            rows="4"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="row">
+                        <div class="col-md-6 mx-auto">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="font-weight-bold" for="">Max Education</label>
+                                        <select [(ngModel)]="teacherInfo.teacherAcademicInfo.maxEducation" name=""
+                                            class="form-control" id="">
+                                            <option value="under-matric">Under Matriculation</option>
+                                            <option value="matric">Matriculation</option>
+                                            <option value="intermediate">Intermediate</option>
+                                            <option value="graduation">Graduation</option>
+                                            <option value="master">Master</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="font-weight-bold" for="">Max Experience (in
+                                            years)</label>
+                                        <input [(ngModel)]="teacherInfo.teacherAcademicInfo.maxExperience"
+                                            class="form-control" type="number">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="font-weight-bold" for="">Experience Level</label>
+                                        <select [(ngModel)]="teacherInfo.teacherAcademicInfo.experienceLevel" name=""
+                                            class="form-control" id="">
+                                            <option value="under-matric">Under Matriculation</option>
+                                            <option value="matric">Matriculation</option>
+                                            <option value="intermediate">Intermediate</option>
+                                            <option value="graduation">Graduation</option>
+                                            <option value="master">Master</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label class="font-weight-bold" for="" style="color: blue;">Upload Government Identity</label>
+                                        <br>
+                                        <a *ngIf="teacherInfo.govtId && (teacherInfo.teacherAcademicInfo.status == 'attempted' || teacherInfo.teacherAcademicInfo.status == 'approved')"
+                                            class="font-weight-bold" target="_blank"
+                                            href="{{staticUrl}}{{teacherInfo?.govtId}}">Attached Government ID</a>
+
+                                        <input
+                                            *ngIf="teacherInfo.teacherAcademicInfo.status != 'attempted' && teacherInfo.teacherAcademicInfo.status != 'approved'"
+                                            name="govtId" #file="ngModel" ngModel type="file" class="form-control"
+                                            id="govtId" (change)="selectGovtId($event)">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+
+            </div>
+        </div>
+
+        <div *ngIf="authHelper?.currentUser?.tail=='one'" class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-10 mx-auto text-center">
+                        <div class="jumbotron">
+
+                            <h4 class="display-4">Demo Class Directions!</h4>
+                            <p class="lead">Please download and read the class guide carefully, then record your
+                                session.</p>
+
+                            <!-- <hr class="my-4">
+                            <p>It uses utility classes for typography and spacing to space content out within the larger
+                                container.</p> -->
+                            <hr>
+                            <div *ngIf="!classData?.recordingUploaded" class="row">
+                                <div class="col-md-6 text-center">
+                                    <a class="btn mb-2 btn-danger" target="_blank"
+                                        [href]="staticUrl + classData?.demoClass?.file"><strong>Download Class
+                                            Guide</strong></a>
+                                </div>
+                                <div class="col-md-6 text-center">
+                                    <button (click)="openRecordingPopup(videoRecording)"
+                                        class="btn ml-2 mt-2 mb-2 btn-warning">Record Class</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div *ngIf="classData?.recordingUploaded"
+                                    class="mx-auto alert mt-4 alert-success text-center">
+                                    <b>Thank You for submitting the demo recording. We'll get back to you as soon as the
+                                        review
+                                        is complete!</b>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <hr>
+
+                        <p>
+                            {{classData?.demoClass?.description}}
+                        </p>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="authHelper?.currentUser?.tail=='two'" class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-10 text-center mx-auto">
+                        <div class="jumbotron">
+
+                            <h4 class="display-4">Contract Directions!</h4>
+                            <p class="lead">Please download the attached contract file, sign it and upload that signed
+                                contract.</p>
+                            <!-- <hr class="my-4">
+                            <p>It uses utility classes for typography and spacing to space content out within the larger
+                                container.</p> -->
+                            <hr>
+                            <div class="row">
+                                <div class="col-md-6 text-center">
+                                    <a class="btn btn-sm mb-2 btn-danger" target="_blank"
+                                        [href]="staticUrl + contract?.contract"><strong>Download
+                                            Contract</strong></a>
+
+
+
+                                </div>
+                                <div class="col-md-6 text-center">
+
+                                    <!-- <hr> -->
+
+                                    <a class="btn btn-sm btn-success" *ngIf="contract?.signedContractFile"
+                                        target="_blank" [href]="staticUrl + contract?.signedContractFile"><strong>
+                                            View
+                                            Uploaded
+                                            Contract</strong>
+                                    </a>
+                                    <br>
+                                    <!-- <label class="font-weight-bold" for="contract">Select Signed Contract</label><br> -->
+                                    <input *ngIf="!contract?.signedContractFile && !contractUploaded" name="contract"
+                                        #file="ngModel" ngModel type="file" class="" id="contract"
+                                        (change)="selectContract($event)">
+                                    <br>
+                                    <small>Max size 9MB</small>
+                                    <br>
+                                    <button *ngIf="contractFile" (click)="uploadContract()"
+                                        class="btn btn-sm ml-2 mt-2 mb-2 btn-warning">Upload</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="row">
+                            <div class="col-12">
+                                <div *ngIf="contract?.signedContractFile || contractUploaded" class="alert alert-success text-center">
+                                    <b>Thank You, Please wait for the approval of management!</b>
+                                </div>
+                            </div>
+                        </div> -->
+                        <div class="row">
+                            <div class="col-12 mx-auto">
+                                <div *ngIf="contract?.signedContractFile || contractUploaded"
+                                    class="alert alert-success text-center">
+                                    <b>Contract uploaded. We'll get back to you as soon as the review is completed.
+                                        Thank you!</b>
+                                </div>
+                            </div>
+                            <!-- <div class="col-md-6 text-left">
+
+
+                                <label class="font-weight-bold" for="contract">Select Signed Contract</label><br>
+                                <input name="contract" #file="ngModel" ngModel type="file" class="" id="contract"
+                                    (change)="selectContract($event)">
+                                <br>
+                                <button *ngIf="contractFile" (click)="uploadContract()"
+                                    class="btn btn-sm ml-2 mt-2 mb-2 btn-warning">Upload</button>
+
+                            </div>
+                            <div class="col-md-6 text-right">
+                                <a [href]="staticUrl + contract?.contract?.file"><strong>Click Here To Download
+                                        Contract</strong></a>
+                                <br>
+                                <a *ngIf="contract?.signedContractFile"
+                                    [href]="staticUrl + contract?.signedContractFile"><strong>Click Here View Uploaded
+                                        Contract</strong>
+                                </a>
+                            </div> -->
+                        </div>
+                        <hr>
+                        <p class="mt-2">
+                            {{contract?.guideLines}}
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="next" class="row">
+            <div class="col-12 text-center">
+                <hr>
+                <button (click)="teacherOnboardingNext()" class="btn btn-primary">Save</button>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+<ng-template #videoRecording let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">Record Class</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-12">
+                <h4 class="text-center">You have attempted {{classData?.attempts}} of
+                    {{classData?.demoClass?.maxAttempts}} demo class recording attempts.</h4>
+                <h6 class="text-center mt-2">Max Recording Time is 5 minutes.</h6>
+                <button
+                    *ngIf="!recording && !classData?.recordingUploaded && (classData?.attempts < classData?.demoClass?.maxAttempts)"
+                    (click)="recordVideo()" class="btn btn-success btn-block">Start Recording</button>
+                <button
+                    *ngIf="recording && !classData?.recordingUploaded && (classData?.attempts < classData?.demoClass?.maxAttempts)"
+                    (click)="stopVideoRecording()" class="btn btn-danger btn-block">Stop</button>
+                <button
+                    *ngIf="recorded && !classData?.recordingUploaded && (classData?.attempts < classData?.demoClass?.maxAttempts)"
+                    (click)="uploadVideoRecording()" class="btn mt-3 btn-warning btn-block">Upload</button>
+                <video controls id="recording" class="mt-3" src="" style="width: 100%;"></video>
+            </div>
+        </div>
+
+    </div>
+    <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-inverse" (click)="modal.dismiss('Cross click')">
+            Close
+        </button>
+    </div> -->
+</ng-template>

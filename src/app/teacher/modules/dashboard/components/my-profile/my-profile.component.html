@@ -1,0 +1,156 @@
+<div class="row">
+
+    <div class="col-lg-12 col-md-12 col-sm-12 m-0 pl-2 pr-2">
+        <div class="card p-4 border-primary rounded">
+
+            <span class="hd-big">Teacher Profile</span>
+            <div class="teacher-profile-action">
+                <a href="#"><i class="fa fa-user"></i> View as Student</a>
+                <a routerLink="/teacher/dashboard/profile/edit"><i class="fa fa-edit"></i> Edit Profile</a>
+            </div>
+            <div class="user">
+                <div class="image">
+                    <img src="./assets/img/faces/12.Layered-Haircut-for-Round-Faces.jpg" alt="">
+                </div>
+                <button>Update Image</button>
+                <span>max file size specification</span>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="col-lg-12 col-md-12 col-sm-12 m-0 pl-2 pr-2">
+        <div class="card p-4 border-primary rounded">
+
+            <span class="hd-big">Information</span>
+            <div class="row mb-5">
+                <div class="col-8">
+
+                    <ul>
+                        <li><span>Name :</span> {{profile?.name}}</li>
+                        <li><span>Email :</span> {{profile?.email}}
+                        </li>
+                        <!-- <li><span>Gender :</span> {{profile?.gender}} </li> -->
+                        <li><span>Level :</span> {{profile?.level?.title}} </li>
+                        <li><span>Age :</span> {{profile?.age}} </li>
+                        <!-- <li><span>Major :</span> Marketing</li>
+                        <li><span>Graduation Date :</span> 15/08/2016</li>
+                        <li><span>Degree :</span> Master of Business Administration</li> -->
+                    </ul>
+
+                    <!-- <form action="" class="information">
+                        <div class="row">
+                            <div class="col-12 col-md-6">
+                                <label>Name</label>
+                                <input type="text" [(ngModel)]="profile.name" name="name" class="field"
+                                    placeholder="Last Name">
+                            </div>
+
+
+                            <div class="col-12 col-md-6">
+                                <label>Email Address</label>
+                                <input type="email" name="email" [(ngModel)]="profile.email" class="field"
+                                    placeholder="Emaill Address">
+                            </div>
+                            <div class="col-12"></div>
+                            <div class="col-12 col-md-6">
+                                <label>Gender</label>
+                                <input type="text" name="gender" [(ngModel)]="profile.gender" class="field"
+                                    placeholder="Gender">
+                            </div>
+                            <div class="col-12"></div>
+                            <div class="col-12 col-md-6">
+                                <label>Age</label>
+                                <input type="number" name="age" [(ngModel)]="profile.age" class="field"
+                                    placeholder="Gender">
+                            </div>
+                        </div>
+                    </form> -->
+
+                </div>
+            </div>
+            <div class="row mb-5">
+                <div class="col-12 col-md-10">
+                    <span class="hd-big">About Me</span>
+                    <p>
+                        {{profile?.bio}}
+                    </p>
+                </div>
+            </div>
+            <div class="row mb-5">
+                <div class="col-12 col-md-10">
+                    <span class="hd-big">Education</span>
+                    <ul>
+                        <li><span>Max Education :</span> {{profile?.teacherAcademicInfo?.maxEducation}}</li>
+                        <li><span>Teaching Experience :</span> {{profile?.teacherAcademicInfo?.maxExperience}} years
+                        </li>
+                        <li><span>Experience Level :</span> {{profile?.teacherAcademicInfo?.experienceLevel}} </li>
+                        <!-- <li><span>Major :</span> Marketing</li>
+                        <li><span>Graduation Date :</span> 15/08/2016</li>
+                        <li><span>Degree :</span> Master of Business Administration</li> -->
+                    </ul>
+                </div>
+            </div>
+            <!-- <div class="row mb-4">
+                <div class="col-12 col-md-10">
+                    <span class="hd-big">Teaching Experince</span>
+                    <ul>
+                        <li>
+                            <span>Latest Experience :</span>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sollicitudin odio enim risus
+                                dolor viverra. Dolor cras semper ullamcorper in in aliquam lectus facilisi. Quis ac enim
+                                ut fames. Molestie mattis vitae faucibus ullamcorper etiam et non cras.</p>
+                        </li>
+                        <li>
+                            <span>Oldest Experience :</span>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sollicitudin odio enim risus
+                                dolor viverra. Dolor cras semper ullamcorper in in aliquam lectus facilisi. Quis ac enim
+                                ut fames. Molestie mattis vitae faucibus ullamcorper etiam et non cras.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div> -->
+            <div class="row mb-0">
+                <div class="col-12 col-md-10">
+                    <span class="hd-big">My Contract</span>
+                    <p>Click <a href="#" class="link">here</a> to view your current contract</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="col-12 m-0 pl-2 pr-2">
+        <div class="card border-primary rounded p-4">
+
+            <div class="students-stats justify-center">
+                <div>
+                    <img src="./assets/img/icons/icon-total-days-taught.svg" alt="">
+                    <span>Total Days Taught</span>
+                </div>
+                <div>
+                    <img src="./assets/img/icons/icon-total-days-teaching.svg" alt="">
+                    <span>Total Days of Teaching</span>
+                </div>
+                <div>
+                    <img src="./assets/img/icons/icon-total-classes-taught.svg" alt="">
+                    <span>Total Classes Taught</span>
+                </div>
+                <div>
+                    <img src="./assets/img/icons/icon-total-students-taught.svg" alt="">
+                    <span>Total Students Taught</span>
+                </div>
+                <div>
+                    <img src="./assets/img/icons/icon-overall-teacher-rating.svg" alt="">
+                    <span>Overall Teacher Rating</span>
+                </div>
+                <div>
+                    <img src="./assets/img/icons/icon-total-student-conversions.svg" alt="">
+                    <span>Total Student Conversions</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div><!-- row -->

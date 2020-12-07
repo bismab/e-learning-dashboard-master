@@ -1,0 +1,81 @@
+.account-status {
+  font-size: 18px;
+  display: table;
+  margin: 0 auto;
+}
+
+.account-status ul {
+  list-style: none;
+  margin: 15px 0 0;
+  padding: 0;
+}
+
+.account-status ul li {
+  line-height: 30px;
+  text-align: center;
+}
+
+.account-status ul li.large {
+  font-size: 22px;
+}
+
+h4 {
+  display: block;
+  text-align: center;
+}
+
+.vendors {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 50px 0;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.vendors button.vendor {
+  width: 130px;
+  min-width: 130px;
+  height: 130px;
+  background: #000;
+  color: #fff;
+  border-radius: 50%;
+  border: none;
+  border: 2px dotted transparent;
+  margin: 0 15px;
+  background-size: cover;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  outline: none;
+  margin-bottom: 15px;
+}
+
+.vendors button.vendor:hover {
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+  border-color: #ddd;
+}
+
+p {
+  display: block;
+  width: 80%;
+  margin: 0 auto;
+  font-weight: 600;
+  font-size: 13px;
+  text-align: center;
+}
+
+p span {
+  color: #f6646e;
+  font-weight: bold;
+  cursor: text;
+}
+
+p span:hover {
+  color: #81889a;
+  text-decoration: underline;
+}
+/*# sourceMappingURL=payment.component.css.map */

@@ -1,0 +1,77 @@
+.accordion {
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  margin: 20px 0;
+  padding: 25px 0;
+}
+
+.accordion .faq-box {
+  border: 1px solid #eee;
+  margin-bottom: 10px;
+  border-radius: 4px;
+}
+
+.accordion .faq-box .question {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  min-height: 40px;
+  background: #ffffff;
+  color: #8d8d8d;
+  line-height: 40px;
+  font-weight: 500;
+  padding: 0.5rem 1.25rem;
+  border-radius: 4px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.accordion .faq-box .question i {
+  line-height: 40px;
+}
+
+.accordion .faq-box .question:hover {
+  cursor: pointer;
+  background: #f6646e;
+  color: #fff;
+}
+
+.accordion .faq-box .answer {
+  display: none;
+  padding: 2rem 1.25rem 0.5rem;
+}
+
+.accordion .faq-box.active {
+  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.08);
+          box-shadow: 0 3px 5px rgba(0, 0, 0, 0.08);
+}
+
+.accordion .faq-box.active .question {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  min-height: 40px;
+  background: #f6646e;
+  color: #fff;
+  line-height: 40px;
+  font-weight: 500;
+  padding: 0.5rem 1.25rem;
+  border-radius: 4px;
+}
+
+.accordion .faq-box.active .question i {
+  line-height: 40px;
+}
+/*# sourceMappingURL=help.component.css.map */

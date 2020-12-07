@@ -1,0 +1,147 @@
+<div class="row">
+    <div class="col-12 m-0 pl-2 pr-2">
+        <div class="card rounded p-0">
+
+            <div class="banner-two">
+                <div class="row align-items-center justify-content-between">
+                    <div class="col-lg-4 col-md-4 col-sm-12 pt-3 pb-3 pl-5 pr-5">
+                        <h2>Hello Emily!</h2>
+                        <p>Dashboard Home</p>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        <div class="time-zone">
+                            <h3>Your Current Time Zone<br> Pakistan Standard</h3>
+                            <a href="#" class="change">Change</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!--
+    <div class="col-lg-3 col-md-3 col-sm-12 m-0 pl-1 pr-1">
+        <div class="card rounded p-4 world-map2">
+            <span class="hd">Your Current Time Zone</span>
+            <h3>Pakistan Standard Time</h3>
+            <a href="#" class="change">Change</a>
+        </div>
+    </div>
+    -->
+    <!--
+    <div class="col-lg-4 col-md-4 col-sm-12 m-0 pl-1 pr-1">
+        <div class="card border-primary rounded p-4">
+            <span class="hd-big">Grades Preview</span>
+            <ul class="grades">
+                <li><strong>Reading :</strong> 5/10</li>
+                <li><strong>Speaking :</strong> 9/10</li>
+                <li><strong>Writing :</strong> 8/10</li>
+            </ul>
+            <a href="#" class="detail">View Details</a>
+        </div>
+    </div>
+    -->
+    <div class="col-lg-12 col-md-12 col-sm-12 m-0 pl-2 pr-2">
+        <div class="rounded p-0 pb-4">
+            <div class="row">
+                <div class="col"><span class="hd-big">Upcoming Classes</span></div>
+                <div class="col">
+                    <div class="month"><i class="fa fa-calendar"></i> Month</div>
+                </div>
+            </div>
+            <div class="week">
+                <div *ngFor="let d of days" (click)="generateClassChunks(d.fulldate)"
+                    [ngClass]="(d.fulldate == selectedDate)?'active':''" class="week-day">
+                    <span class="day">{{d?.day}}</span>
+                    <span class="number">{{d?.date}}</span>
+                    <!-- <div class="circle"></div> -->
+                </div>
+
+            </div>
+
+            <table class="class-log">
+                <thead>
+                    <tr>
+                        <th style="width: 50%;">Class</th>
+                        <th>Timings</th>
+                        <th>Teacher</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let cl of classListing">
+                        <td>{{cl?.title}}</td>
+                        <td><b>{{cl?.startTime | date :'hh:mm a'}}</b> to
+                            <b>{{cl?.endTime | date :'hh:mm a'}}</b></td>
+                        <td>{{cl?.teacher}}</td>
+                        <td><a *ngIf="cl.join" class="btn btn-info" target="_blank"
+                                [href]="cl?.classAddress">Join</a>
+                        </td>
+
+                        <!-- <td>As Scheduled + Graded</td> -->
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="col-sm-12 col-md-6 m-0 pl-2 pr-2">
+        <div class="card border-primary rounded p-4">
+
+            <span class="hd-big">Practice</span>
+            <div class="slide-btn">
+                <button><i class="fa fa-chevron-left"></i></button>
+                <button><i class="fa fa-chevron-right"></i></button>
+            </div>
+            <div class="tips">
+                <div class="item">
+                    <p>Please complete your reading and writing practice before your class on May 18th, 2020 Click <a
+                            href="#" class="click-here">here</a> to access.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-12 m-0 pl-2 pr-2">
+        <div class="card border-primary rounded p-4">
+
+            <span class="hd-big">Reminders</span>
+            <ul class="reminder">
+                <li><span>ATTENTION PARENTS :</span> Your account requires payment, please make a payment to avoid
+                    disruption of service.</li>
+            </ul>
+
+        </div>
+    </div>
+    <div class="col-12 m-0 pl-2 pr-2">
+        <div class="card border-primary rounded p-4">
+
+            <div class="students-stats justify-center">
+                <div>
+                    <img src="./assets/img/icons/icon-total-days-of-learning.svg" alt="">
+                    <span>Total Days of Learning</span>
+                </div>
+                <div>
+                    <img src="./assets/img/icons/icon-total-hours-of-learning.svg" alt="">
+                    <span>Total Hours of Learning</span>
+                </div>
+                <div>
+                    <img src="./assets/img/icons/icon-total-classes-attended.svg" alt="">
+                    <span>Total Classes Attended</span>
+                </div>
+                <div>
+                    <img src="./assets/img/icons/icon-total-activities-completed.svg" alt="">
+                    <span>Total Activities Completed</span>
+                </div>
+                <div>
+                    <img src="./assets/img/icons/icon-current-graduate-level.svg" alt="">
+                    <span>Current Graduated Level</span>
+                </div>
+                <div>
+                    <img src="./assets/img/icons/icon-next-graduate-level.svg" alt="">
+                    <span>Next Graduation Level</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

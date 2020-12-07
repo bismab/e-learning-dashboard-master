@@ -1,0 +1,12 @@
+.sidebar .sidebar-wrapper{
+  overflow-x: hidden;
+  height: 100vh;
+  //background: #54478C;
+  background: rgb(128,136,152);
+  border-radius: 20px;
+  margin: 10px;
+
+  .active-pro{
+    bottom: 22px;
+  }
+}

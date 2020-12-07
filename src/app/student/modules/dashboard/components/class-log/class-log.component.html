@@ -1,0 +1,169 @@
+<div class="row">
+
+    <div class="col-lg-12 col-md-12 col-sm-12 m-0 pl-2 pr-2">
+        <div class="card p-4 border-primary rounded">
+
+            <div class="row mb-5">
+                <div class="col-12">
+                    <div class="students-stats justify-center">
+                        <div>
+                            <img src="./assets/img/icons/icon-total-days-of-learning.svg" alt="">
+                            <span>Total Days of Learning</span>
+                        </div>
+                        <div>
+                            <img src="./assets/img/icons/icon-total-hours-of-learning.svg" alt="">
+                            <span>Total Hours of Learning</span>
+                        </div>
+                        <div>
+                            <img src="./assets/img/icons/icon-total-classes-attended.svg" alt="">
+                            <span>Total Classes Attended</span>
+                        </div>
+                        <div>
+                            <img src="./assets/img/icons/icon-total-activities-completed.svg" alt="">
+                            <span>Total Activities Completed</span>
+                        </div>
+                        <div>
+                            <img src="./assets/img/icons/icon-current-graduate-level.svg" alt="">
+                            <span>Current Graduated Level</span>
+                        </div>
+                        <div>
+                            <img src="./assets/img/icons/icon-next-graduate-level.svg" alt="">
+                            <span>Next Graduation Level</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mb-5">
+                <div class="col-12">
+                    <!-- <div class="lesson-status">
+                        <span>Lesson Status : </span>
+                        <select name="" id="">
+                            <option value="0" selected>Please Select Status</option>
+                        </select>
+                    </div> -->
+                    <div class="lesson-status">
+                        <span>Date : </span>
+                        <div class="form-inline">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <input class="form-control" placeholder="yyyy-mm-dd" name="dp"
+                                        [(ngModel)]="selectedDate" ngbDatepicker #d="ngbDatepicker">
+                                    <div class="input-group-append">
+                                        <button class="calendar-btn calendar" (click)="d.toggle()" type="button"><i
+                                                class="fa fa-calendar"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <button (click)="filterClasses()" class="ml-4 btn btn-primary">Filter</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mb-5">
+                <div class="col-12">
+                    <table class="class-log">
+                        <thead>
+                            <tr>
+                                <th style="width: 40%;">Class</th>
+                                <th>Teacher</th>
+                                <th>Date</th>
+                                <th>Day</th>
+                                <th>Timings</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let e of listingEvents" [style.background-color]='e.backgroundColor'>
+                                <td>{{e?.title}}</td>
+                                <td>{{e?.teacher}}</td>
+                                <td>{{e?.date}}</td>
+                                <td>{{e?.day}}</td>
+                                <td><b>{{e?.startTime | date :'hh:mm a'}}</b> to
+                                    <b>{{e?.endTime | date :'hh:mm a'}}</b></td>
+                                <!-- <td>
+                                    <button (click)="openSessionDetails(e.sessionEnrollmentId)"
+                                        class="btn btn-info btn-circle">D</button>
+                                </td> -->
+                                <!-- <td>As Scheduled + Graded</td> -->
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- <div class="row mb-3">
+                <div class="col-12">
+                    <div class="pagging">
+                        <ul>
+                            <li class="active"><a href="#"><i class="fa fa-angle-double-left"></i> Prev</a></li>
+                            <li><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li><a href="#">6</a></li>
+                            <li><a href="#">7</a></li>
+                            <li><a href="#">8</a></li>
+                            <li><a href="#">9</a></li>
+                            <li><a href="#">10</a></li>
+                            <li><a href="#">Next <i class="fa fa-angle-double-right"></i></a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div> -->
+
+        </div>
+    </div>
+</div>
+
+<ng-template #detailedGrades let-modal>
+    <div class="modal-header" style="display: flex; justify-content: space-between;">
+        <span class="modal-title" id="modal-basic-title"
+            style="line-height: 30px; font-size: 24px; font-weight: 600;">Class Grade</span>
+        <button type="button" class="close"
+            style="height: 30px; width: 30px; border: none; background: #fff; padding: 0; margin: 0;" aria-label="Close"
+            (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-12">
+                <div class="class-grade">
+                    <h2>Major Course - 4S</h2>
+                    <h3>LEVEL3-C5-L10</h3>
+                    <h5>Teacher Emma</h5>
+                    <span class="improve"><strong>Improve:</strong> Reading of words "Apple", "Banana", "Orange" and
+                        other fruits</span>
+                    <div class="rate">
+                        <span>Reading</span>
+                        <div class="star">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="rate">
+                        <span>Writing</span>
+                        <div class="star">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="rate">
+                        <span>Speaking</span>
+                        <div class="star">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
